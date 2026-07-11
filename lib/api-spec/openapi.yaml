@@ -70,21 +70,21 @@ components:
       type: object
       required:
         - name
-        - email
+        - phone
         - date
-        - servings
-        - eventType
+        - quantity
+        - orderType
       properties:
         name:
           type: string
           minLength: 1
-        email:
+        phone:
           type: string
         date:
           type: string
-        servings:
+        quantity:
           type: string
-        eventType:
+        orderType:
           type: string
         details:
           type: string
