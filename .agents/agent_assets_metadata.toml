@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "ku66JdrfG6k7DbibrYW9b"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-1.png"
+type = "image"
+title = "blush floral wedding cake"
+
+[[generated]]
+id = "XJgxpw35Euq_K_c5DhzXf"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-2.png"
+type = "image"
+title = "pressed botanical anniversary cake"
+
+[[generated]]
+id = "jfEMzZ627h3__KzQterxS"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-3.png"
+type = "image"
+title = "velvet gateau with amber roses"
+
+[[generated]]
+id = "JenKS2gEygQ6ir9zYoqBg"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-4.png"
+type = "image"
+title = "minimalist fondant with sugar rose"
+
+[[generated]]
+id = "CiSvcy8JjlY_mAO7XOwzH"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-5.png"
+type = "image"
+title = "rustic cake with cascading florals"
+
+[[generated]]
+id = "7uvZEamh394oo7ZnlOMW3"
+uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-6.png"
+type = "image"
+title = "delicate gold leaf spring cake"

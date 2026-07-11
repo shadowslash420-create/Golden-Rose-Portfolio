@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: inquiries
+    description: Cake inquiry operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /inquire:
+    post:
+      operationId: submitInquiry
+      tags: [inquiries]
+      summary: Submit a cake inquiry
+      description: Submits a custom cake inquiry and notifies the admin via email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InquiryInput"
+      responses:
+        "200":
+          description: Inquiry submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryResponse"
+        "400":
+          description: Invalid inquiry data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,42 @@ components:
           type: string
       required:
         - status
-
+    InquiryInput:
+      type: object
+      required:
+        - name
+        - email
+        - date
+        - servings
+        - eventType
+      properties:
+        name:
+          type: string
+          minLength: 1
+        email:
+          type: string
+        date:
+          type: string
+        servings:
+          type: string
+        eventType:
+          type: string
+        details:
+          type: string
+    InquiryResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string

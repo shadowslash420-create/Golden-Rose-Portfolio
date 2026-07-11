@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Golden Rose Bakes"
+version = "1.0.0"
+id = "artifacts/golden-rose-portfolio"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24442
+
+[services.development]
+run = "pnpm --filter @workspace/golden-rose-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/golden-rose-portfolio", "run", "build" ]
+publicDir = "artifacts/golden-rose-portfolio/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24442"
+BASE_PATH = "/"
