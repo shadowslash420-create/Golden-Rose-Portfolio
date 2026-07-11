@@ -9,9 +9,9 @@
 export interface InquiryInput {
   /** @minLength 1 */
   name: string;
-  email: string;
+  phone: string;
   date: string;
-  servings: string;
-  eventType: string;
+  quantity: string;
+  orderType: string;
   details?: string;
 }

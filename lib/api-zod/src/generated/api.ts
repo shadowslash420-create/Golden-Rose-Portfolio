@@ -26,10 +26,10 @@ export const HealthCheckResponse = zod.object({
 
 export const SubmitInquiryBody = zod.object({
   "name": zod.string().min(1),
-  "email": zod.string(),
+  "phone": zod.string(),
   "date": zod.string(),
-  "servings": zod.string(),
-  "eventType": zod.string(),
+  "quantity": zod.string(),
+  "orderType": zod.string(),
   "details": zod.string().optional()
 })
 
