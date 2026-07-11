@@ -1,0 +1,168 @@
+import React, { useState } from 'react';
+
+// Custom SVG Rose Border Component to frame images beautifully
+const RoseFrame = ({ children }: { children: React.ReactNode }) => (
+  <div className="relative p-6 group">
+    {/* Decorative Rose Corner Vectors */}
+    <svg className="absolute top-0 left-0 w-12 h-12 text-rose-300 transform -rotate-90 transition-transform group-hover:scale-110" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50,10 C25,10 10,25 10,50 C10,65 20,75 35,78 C30,60 40,40 50,30 C60,40 70,60 65,78 C80,75 90,65 90,50 C90,25 75,10 50,10 Z" />
+      <path d="M50,35 C45,45 35,55 40,70 C45,65 55,65 60,70 C65,55 55,45 50,35 Z" opacity="0.7"/>
+    </svg>
+    <svg className="absolute bottom-0 right-0 w-12 h-12 text-rose-300 transform rotate-90 transition-transform group-hover:scale-110" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50,10 C25,10 10,25 10,50 C10,65 20,75 35,78 C30,60 40,40 50,30 C60,40 70,60 65,78 C80,75 90,65 90,50 C90,25 75,10 50,10 Z" />
+    </svg>
+    
+    {/* Main Image Container shaped like a soft petal/organic bloom */}
+    <div className="overflow-hidden rounded-t-[60px] rounded-b-[40px] border-4 border-rose-100 shadow-xl transition-all duration-500 group-hover:shadow-rose-200/50 group-hover:border-rose-200">
+      {children}
+    </div>
+  </div>
+);
+
+export default function GoldenRosePortfolio() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    date: '',
+    servings: '15-20',
+    eventType: 'Wedding',
+    details: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  // Asset Splitting Strategy: Map out unique slices of your master product image
+  const galleryItems = [
+    { id: 1, title: 'Signature Rose Gateau', category: 'Wedding', styles: 'object-center' },
+    { id: 2, title: 'Floral Pressed Buttercream', category: 'Celebration', styles: 'object-top' },
+    { id: 3, title: 'Botanical Fondant Tier', category: 'Custom', styles: 'object-bottom' },
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Production-ready endpoint architecture
+    try {
+      const response = await fetch('/api/inquire', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) setSuccess(true);
+    } catch (error) {
+      console.error("Submission failed", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FFFDFB] text-stone-800 font-sans selection:bg-rose-100">
+      
+      {/* Hero Header Section */}
+      <header className="relative py-20 text-center overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#e11d48_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <h1 className="font-serif text-5xl md:text-7xl text-amber-900 tracking-wide drop-shadow-sm">
+          Golden Rose Bakes
+        </h1>
+        <div className="flex items-center justify-center gap-2 mt-3">
+          <span className="h-[1px] w-12 bg-rose-300"></span>
+          <p className="text-rose-600 font-medium tracking-widest text-xs uppercase">Bespoke Cakes & Gateaux</p>
+          <span className="h-[1px] w-12 bg-rose-300"></span>
+        </div>
+      </header>
+
+      {/* Divided Asset Gallery Section */}
+      <main className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+        {galleryItems.map((item) => (
+          <RoseFrame key={item.id}>
+            <div className="relative h-96 w-full bg-rose-50">
+              {/* 
+                PRO TIP FOR IMAGE DIVISION: Use the same source image file across 
+                multiple frames but adjust position, scale, and object alignment 
+                via classes to extract distinct, gorgeous macro close-ups.
+              */}
+              <img 
+                src="/path-to-your-instagram-downloaded-image.jpg" 
+                alt={item.title}
+                className={`w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100 ${item.styles}`} 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-80"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <span className="text-xs uppercase bg-rose-500/80 tracking-widest px-2.5 py-1 rounded-full font-semibold">{item.category}</span>
+                <h3 className="font-serif text-xl mt-2 tracking-wide">{item.title}</h3>
+              </div>
+            </div>
+          </RoseFrame>
+        ))}
+      </main>
+
+      {/* Inquiry System Form */}
+      <section className="max-w-3xl mx-auto mt-24 mb-20 px-6">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-stone-100 border border-rose-50 relative">
+          
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-3xl text-amber-950">Inquire for a Custom Creation</h2>
+            <p className="text-stone-500 text-sm mt-2">Let us bring your sweet vision to life. The admin will review and respond within 48 hours.</p>
+          </div>
+
+          {success ? (
+            <div className="text-center py-12 bg-rose-50/50 rounded-2xl border border-rose-100 animate-fade-in">
+              <span className="text-3xl">🌹</span>
+              <h3 className="font-serif text-xl text-rose-800 mt-2">Inquiry Sweetly Received!</h3>
+              <p className="text-stone-600 text-sm mt-1 max-w-sm mx-auto">We will check our baking calendar availability and reach out via email shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Your Full Name</label>
+                  <input required type="text" className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Email Address</label>
+                  <input required type="email" className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Event Date</label>
+                  <input required type="date" className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Guest Count</label>
+                  <select className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.servings} onChange={e => setFormData({...formData, servings: e.target.value})}>
+                    <option>10-15 guests</option>
+                    <option>15-30 guests</option>
+                    <option>30-60 guests</option>
+                    <option>60+ tiers</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Occasion Type</label>
+                  <select className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.eventType} onChange={e => setFormData({...formData, eventType: e.target.value})}>
+                    <option>Wedding</option>
+                    <option>Anniversary</option>
+                    <option>Birthday Gateau</option>
+                    <option>Corporate Gala</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-semibold text-stone-600 mb-2">Design Notes & Flavors Preferred</label>
+                <textarea rows={4} placeholder="Describe your dream theme, colors, textures, or specific flower arrangement ideas..." className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:bg-white transition" value={formData.details} onChange={e => setFormData({...formData, details: e.target.value})}></textarea>
+              </div>
+
+              <button type="submit" disabled={loading} className="w-full py-4 bg-gradient-to-r from-amber-950 to-stone-900 text-white font-medium rounded-xl tracking-wide shadow-lg hover:from-rose-950 hover:to-amber-950 active:scale-[0.99] transition disabled:opacity-50">
+                {loading ? 'Sending Request...' : 'Submit Design Inquiry'}
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
