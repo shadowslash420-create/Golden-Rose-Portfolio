@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/golden-rose-portfolio run build",
+  "buildCommand": "pnpm --filter @workspace/golden-rose-portfolio run build && cp -r artifacts/golden-rose-portfolio/dist/public ./public",
   "outputDirectory": "public",
   "framework": null
 }
