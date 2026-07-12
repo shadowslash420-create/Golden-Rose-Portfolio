@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm --filter @workspace/golden-rose-portfolio run build",
+  "outputDirectory": "artifacts/golden-rose-portfolio/dist/public",
+  "framework": null
+}
