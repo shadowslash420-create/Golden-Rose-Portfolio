@@ -2,18 +2,19 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
-import { RoseFrame, Divider } from "@/components/RoseFrame";
+import { Divider } from "@/components/RoseFrame";
 import { InquiryForm } from "@/components/InquiryForm";
+import InfiniteMenu from "@/components/InfiniteMenu";
 
 const queryClient = new QueryClient();
 
-const galleryImages = [
-  { id: 1, src: "/gallery/cake-1.png", title: "حلويات أعراس فاخرة", type: "أعراس ومناسبات", align: "object-center" },
-  { id: 2, src: "/gallery/cake-2.png", title: "تشكيلة الحلويات الجافة", type: "أعياد ومناسبات", align: "object-top" },
-  { id: 3, src: "/gallery/cake-3.png", title: "قاطو بريستيج مخصص", type: "طلبية خاصة", align: "object-bottom" },
-  { id: 4, src: "/gallery/cake-4.png", title: "طبقات الورد والزهر", type: "أعراس", align: "object-center" },
-  { id: 5, src: "/gallery/cake-5.png", title: "كيك الذكرى السنوية", type: "مناسبات خاصة", align: "object-[center_20%]" },
-  { id: 6, src: "/gallery/cake-6.png", title: "تصميم حصري بالورود", type: "إبداع خاص", align: "object-center" },
+const galleryItems = [
+  { image: "/gallery/cake-1.png", title: "حلويات أعراس فاخرة", description: "أعراس ومناسبات" },
+  { image: "/gallery/cake-2.png", title: "تشكيلة الحلويات الجافة", description: "أعياد ومناسبات" },
+  { image: "/gallery/cake-3.png", title: "قاطو بريستيج مخصص", description: "طلبية خاصة" },
+  { image: "/gallery/cake-4.png", title: "طبقات الورد والزهر", description: "أعراس" },
+  { image: "/gallery/cake-5.png", title: "كيك الذكرى السنوية", description: "مناسبات خاصة" },
+  { image: "/gallery/cake-6.png", title: "تصميم حصري بالورود", description: "إبداع خاص" },
 ];
 
 function Home() {
@@ -77,27 +78,7 @@ function Home() {
           <p className="text-stone-400 tracking-widest uppercase text-xs">تشكيلة مختارة</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {galleryImages.map((img, i) => (
-            <RoseFrame key={img.id} className={i % 2 === 0 ? "md:mt-12" : ""}>
-              <div className="relative aspect-[3/4] w-full bg-rose-50 overflow-hidden group-hover:scale-105 transition-transform duration-1000 ease-out">
-                <img
-                  src={img.src}
-                  alt={img.title}
-                  className={`w-full h-full object-cover ${img.align}`}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute bottom-0 right-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 text-right">
-                  <span className="text-[10px] uppercase bg-rose-600/90 text-white tracking-widest px-3 py-1.5 rounded-full font-semibold">
-                    {img.type}
-                  </span>
-                  <h3 className="font-serif text-xl text-white mt-4 tracking-wide">{img.title}</h3>
-                </div>
-              </div>
-            </RoseFrame>
-          ))}
-        </div>
+        <InfiniteMenu items={galleryItems} scale={1} />
       </section>
 
       <Divider />
