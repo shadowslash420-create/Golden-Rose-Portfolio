@@ -27,15 +27,25 @@ function Home() {
       </div>
 
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-20 z-10">
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-20 z-10 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/hero-bg.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Layered overlays for text legibility while keeping warmth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FFFDFB]/60 via-[#FFF1F2]/40 to-[#FFFDFB]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFB] via-transparent to-transparent" />
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
           className="relative"
         >
-          <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(#e11d48_1px,transparent_1px)] [background-size:24px_24px] rounded-full blur-[2px]" />
-
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-amber-900 tracking-tight drop-shadow-sm mb-6 max-w-5xl mx-auto leading-[1.1]">
             Golden Rose <br /><span className="text-rose-600 italic font-light">Bakes</span>
           </h1>

@@ -36,3 +36,9 @@ id = "7uvZEamh394oo7ZnlOMW3"
 uri = "file://artifacts/golden-rose-portfolio/public/gallery/cake-6.png"
 type = "image"
 title = "delicate gold leaf spring cake"
+
+[[generated]]
+id = "ypgkU8zAi99bmBheWGtCI"
+uri = "file://attached_assets/generated_images/luxury_top_down_flat_9783.png"
+type = "image"
+title = "generated_image"
