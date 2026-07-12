@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd ../.. && pnpm --filter @workspace/golden-rose-portfolio run build",
+  "outputDirectory": "dist/public",
+  "framework": null
+}
