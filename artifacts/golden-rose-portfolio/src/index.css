@@ -51,40 +51,51 @@
 }
 
 :root {
-  --background: 34 100% 99%; /* #FFFDFB */
-  --foreground: 24 10% 10%;
-  --border: 350 20% 90%;
-  
-  --card: 0 0% 100%;
-  --card-foreground: 24 10% 10%;
-  --card-border: 350 30% 95%;
-  
-  --popover: 0 0% 100%;
-  --popover-foreground: 24 10% 10%;
-  --popover-border: 350 30% 95%;
+  /* 60% — Alabaster Cream canvas */
+  --background: 40 100% 99%;       /* #FFFDFB — warm off-white, never clinical */
+  --foreground: 17 95% 10%;        /* Deep espresso text */
+  --border: 350 60% 92%;
 
-  --primary: 337 77% 42%; /* #be185d blush rose */
+  /* Cards — Soft Rose Velvet #FFF1F2 */
+  --card: 351 100% 97%;            /* #FFF1F2 */
+  --card-foreground: 17 95% 12%;
+  --card-border: 351 80% 91%;      /* #FFE4E6 */
+
+  --popover: 351 100% 97%;
+  --popover-foreground: 17 95% 12%;
+  --popover-border: 351 80% 91%;
+
+  /* 30% — Blush Rose Pink #E11D48 — brand identity */
+  --primary: 347 84% 50%;          /* #E11D48 */
   --primary-foreground: 0 0% 100%;
-  
-  --secondary: 24 74% 28%; /* #7c2d12 amber-950 */
-  --secondary-foreground: 0 0% 100%;
+  --primary-border: hsl(347 84% 40%);
 
-  --muted: 350 20% 96%;
-  --muted-foreground: 24 10% 40%;
-  
-  --accent: 350 30% 92%;
-  --accent-foreground: 337 77% 42%;
+  /* Deep Roasted Espresso #451A03 — headings, structure */
+  --secondary: 17 95% 15%;         /* #451A03 */
+  --secondary-foreground: 351 100% 97%;
+  --secondary-border: hsl(17 95% 10%);
+
+  /* Muted Sage — botanical complement to rose */
+  --muted: 160 20% 95%;
+  --muted-foreground: 220 9% 46%;  /* #6B7280 sage-gray */
+  --muted-border: 160 20% 88%;
+
+  /* Rose Velvet accent — #FFE4E6 */
+  --accent: 351 100% 94%;          /* #FFE4E6 */
+  --accent-foreground: 347 84% 40%;
+  --accent-border: 351 80% 87%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
+  --destructive-border: hsl(0 84% 50%);
 
-  --input: 350 30% 90%;
-  --ring: 337 77% 42%;
+  --input: 351 60% 92%;
+  --ring: 347 84% 50%;
 
   --app-font-sans: 'DM Sans', sans-serif;
   --app-font-serif: 'Playfair Display', serif;
   --app-font-mono: Menlo, monospace;
-  
+
   --radius: 1rem;
 }
 
