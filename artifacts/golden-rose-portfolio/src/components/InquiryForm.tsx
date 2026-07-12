@@ -165,7 +165,7 @@ export const InquiryForm = () => {
                 type="submit"
                 data-testid="button-submit"
                 disabled={mutation.isPending}
-                className="w-full py-4 bg-gradient-to-l from-amber-950 to-stone-900 text-white font-bold rounded-xl tracking-wide shadow-lg hover:from-rose-950 hover:to-amber-950 active:scale-[0.99] transition disabled:opacity-50 text-base"
+                className="w-full py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl tracking-wide shadow-lg shadow-rose-200 active:scale-[0.99] transition disabled:opacity-50 text-base"
               >
                 {mutation.isPending ? "جاري إرسال طلبكِ للمطبخ..." : "إرسال طلب الحجز"}
               </button>

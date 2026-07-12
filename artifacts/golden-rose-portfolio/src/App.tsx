@@ -122,18 +122,18 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-amber-950 text-amber-50 py-16 md:py-24 relative overflow-hidden z-10 mt-auto">
+      <footer className="bg-rose-600 text-white py-16 md:py-24 relative overflow-hidden z-10 mt-auto">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fce7f3_1px,transparent_1px)] [background-size:24px_24px]" />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <svg className="w-12 h-12 text-rose-300/40 mx-auto mb-8" viewBox="0 0 100 100" fill="currentColor">
             <path d="M50,10 C25,10 10,25 10,50 C10,65 20,75 35,78 C30,60 40,40 50,30 C60,40 70,60 65,78 C80,75 90,65 90,50 C90,25 75,10 50,10 Z" />
             <path d="M50,35 C45,45 35,55 40,70 C45,65 55,65 60,70 C65,55 55,45 50,35 Z" opacity="0.6"/>
           </svg>
-          <h2 className="font-serif text-3xl md:text-5xl text-rose-100/90 mb-6">Golden Rose Bakes</h2>
-          <p className="text-amber-200/60 font-sans tracking-widest uppercase text-xs md:text-sm mb-12">
+          <h2 className="font-serif text-3xl md:text-5xl text-white/95 mb-6">Golden Rose Bakes</h2>
+          <p className="text-rose-100/80 font-sans tracking-widest uppercase text-xs md:text-sm mb-12">
             حلويات الأعراس &bull; الحلويات الجافة &bull; طلبيات خاصة
           </p>
-          <p className="text-amber-200/40 text-xs">
+          <p className="text-rose-100/50 text-xs">
             &copy; {new Date().getFullYear()} Golden Rose Bakes. جميع الحقوق محفوظة.
           </p>
         </div>
